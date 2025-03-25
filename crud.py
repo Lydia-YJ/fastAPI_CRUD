@@ -8,25 +8,25 @@ import pymysql
 load_dotenv() 
 app = FastAPI()
 
-timeout = 10
+timeout = int(os.getenv('MYSQL_TIMEOUT'))
 connection = pymysql.connect(
   charset="utf8mb4",
   connect_timeout=timeout,
   cursorclass=pymysql.cursors.DictCursor,
-  db="defaultdb",
-  host="mysql-1003fd63-dbwjdcheld-b2d0.h.aivencloud.com",
+  db=os.getenv('MYSQL_DB'),
+  host=os.getenv('MYSQL_HOST'),
   password=os.getenv("AIVEN_PASSWORD"),
   read_timeout=timeout,
-  port=11559,
-  user="avnadmin",
+  port=int(os.getenv('MYSQL_PORT')),
+  user=os.getenv('MYSQL_USER'),
   write_timeout=timeout,)
 
 r = redis.Redis(
-    host='redis-18340.c8.us-east-1-4.ec2.redns.redis-cloud.com',
-    port=18340,
+    host=os.getenv('REDIS_HOST'),
+    port=int(os.getenv('REDIS_PORT')),
     decode_responses=True,
-    username="default",
-    password="4OlmdlfV6PaC766AZhiRMXi6WM3qJTze")
+    username=os.getenv('REDIS_USER'),
+    password=os.getenv('REDIS_PW'))
 
 class Article(BaseModel):
     title: str
