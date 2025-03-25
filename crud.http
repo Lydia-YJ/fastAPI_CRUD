@@ -1,1 +1,29 @@
+POST https://literate-orbit-q797p949vv9xfprj-8000.app.github.dev/articles
+content-type: application/json
+
+{
+    "title": "Health",
+    "body": "Test"
+}
+
+###
+
 GET https://literate-orbit-q797p949vv9xfprj-8000.app.github.dev/articles
+
+###
+
+GET https://literate-orbit-q797p949vv9xfprj-8000.app.github.dev/articles/1
+
+###
+
+PUT https://literate-orbit-q797p949vv9xfprj-8000.app.github.dev/articles/7
+content-type: application/json
+
+{
+    "title": "Healthy Eating",
+    "body": "Test"
+}
+
+###
+
+DELETE https://literate-orbit-q797p949vv9xfprj-8000.app.github.dev/articles/7
