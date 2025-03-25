@@ -1,8 +1,11 @@
 from fastapi import FastAPI
-app = FastAPI()
-
+from dotenv import load_dotenv
 import pymysql
 import os
+
+app = FastAPI()
+
+load_dotenv() 
 
 timeout = 10
 connection = pymysql.connect(
